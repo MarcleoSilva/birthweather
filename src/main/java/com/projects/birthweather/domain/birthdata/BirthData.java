@@ -2,7 +2,10 @@ package com.projects.birthweather.domain.birthdata;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.util.List;
 import java.util.UUID;
 
 @Table(name="birthweather")
@@ -27,10 +30,15 @@ public class BirthData {
     // Changed data
     private String latitude;
     private String longitude;
-    private Double precipitation;
-    private Integer cloud;
-    private Integer humidity;
-    private Double temperature;
+
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    private List<Double> precipitation;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    private List<Integer> cloud;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    private List<Integer> humidity;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    private List<Double> temperature;
 
 
     public BirthData(BirthDataRequestDTO data) {
@@ -39,4 +47,5 @@ public class BirthData {
         this.city = data.city();
         this.country = data.country();
     }
+
 }

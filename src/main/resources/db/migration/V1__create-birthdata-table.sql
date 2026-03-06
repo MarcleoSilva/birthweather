@@ -8,11 +8,11 @@ CREATE TABLE birthweather (
     city VARCHAR(100) NOT NULL,
     country VARCHAR(100) NOT NULL,
 
-    latitude VARCHAR(200) NOT NULL,
-    longitude VARCHAR(200) NOT NULL,
-    rain REAL,
-    precipitation REAL,
-    cloud INTEGER,
-    humidity INTEGER,
-    temperature REAL
+    latitude VARCHAR(200),
+    longitude VARCHAR(200),
+
+    precipitation DOUBLE PRECISION[],,
+    cloud INTEGER[],
+    humidity INTEGER[],
+    temperature DOUBLE PRECISION[]
 );

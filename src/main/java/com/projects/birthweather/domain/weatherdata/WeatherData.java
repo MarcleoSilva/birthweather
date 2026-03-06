@@ -12,6 +12,8 @@ public class WeatherData {
     @JsonProperty("hourly")
     private HourlyData hourlyData;
 
+
+
     @Override
     public String toString() {
         return "Temperature" + getHourlyData().getTemperature();
