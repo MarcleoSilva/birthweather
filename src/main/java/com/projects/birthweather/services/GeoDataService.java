@@ -20,6 +20,7 @@ public class GeoDataService {
         String encodedCountry = country.replace(" ","&");
         String API = "https://nominatim.openstreetmap.org/search?q="+encodedCity+"%20"+encodedCountry+"&format=json";
 
+
         String json = fetcher.getJSON(API);
         GeoData[] results = converter.getData(json, GeoData[].class);
 

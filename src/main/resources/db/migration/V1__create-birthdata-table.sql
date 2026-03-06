@@ -13,5 +13,6 @@ CREATE TABLE birthweather (
     rain REAL,
     precipitation REAL,
     cloud INTEGER,
-    humidity INTEGER
+    humidity INTEGER,
+    temperature REAL
 );

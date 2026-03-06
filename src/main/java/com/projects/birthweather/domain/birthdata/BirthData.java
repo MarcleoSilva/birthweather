@@ -30,6 +30,7 @@ public class BirthData {
     private Double precipitation;
     private Integer cloud;
     private Integer humidity;
+    private Double temperature;
 
 
     public BirthData(BirthDataRequestDTO data) {
