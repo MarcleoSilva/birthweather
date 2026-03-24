@@ -1,9 +1,10 @@
 package com.projects.birthweather.services;
 
+import org.springframework.stereotype.Service;
+
 import com.projects.birthweather.domain.birthdata.BirthData;
 import com.projects.birthweather.domain.birthdata.BirthDataRequestDTO;
 import com.projects.birthweather.repository.BirthDataRepository;
-import org.springframework.stereotype.Service;
 
 @Service
 public class BirthWeatherService {
@@ -45,6 +46,8 @@ public class BirthWeatherService {
         bd.setPrecipitation(weatherDataService.getWeatherData(lat, lon, data.date()).getHourlyData().getPrecipitation());
         bd.setCloud(weatherDataService.getWeatherData(lat, lon, data.date()).getHourlyData().getCloud());
         bd.setHumidity(weatherDataService.getWeatherData(lat, lon, data.date()).getHourlyData().getHumidity());
+
+        
 
 
         return repository.save(bd);

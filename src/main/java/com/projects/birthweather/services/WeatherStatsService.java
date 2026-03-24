@@ -1,13 +1,13 @@
 package com.projects.birthweather.services;
 
-import com.projects.birthweather.domain.birthdata.BirthData;
-import com.projects.birthweather.domain.stats.WeatherStatsDTO;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 import static java.util.Collections.max;
 import static java.util.Collections.min;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.projects.birthweather.domain.birthdata.BirthData;
+import com.projects.birthweather.domain.stats.WeatherStatsDTO;
 
 @Service
 public class WeatherStatsService {
@@ -22,22 +22,28 @@ public class WeatherStatsService {
         Double maxPrecipitation = max(data.getPrecipitation());
         Double minPrecipitation = min(data.getPrecipitation());
         Double averagePrecipitation = average(data.getPrecipitation());
+        List<Double> Precipitation = data.getPrecipitation();
 
         Integer maxCloud = max(data.getCloud());
         Integer minCloud = min(data.getCloud());
         Double averageCloud = averageInt(data.getCloud());
+        List<Integer> Cloud = data.getCloud();
 
         Integer maxHumidity = max(data.getHumidity());
         Integer minHumidity = min(data.getHumidity());
         Double averageHumidity = averageInt(data.getHumidity());
+        List<Integer> Humidity = data.getHumidity();
 
         Double maxTemperature = max(data.getTemperature());
         Double minTemperature = min(data.getTemperature());
         Double averageTemperature = average(data.getTemperature());
+        List<Double> Temperature = data.getTemperature();
+
+
 
         return new WeatherStatsDTO(
-                name, city, country, date, mapsURL, maxPrecipitation, minPrecipitation, averagePrecipitation, maxCloud, minCloud, averageCloud,
-                maxHumidity, minHumidity, averageHumidity, maxTemperature, minTemperature, averageTemperature, isItRaining(averagePrecipitation), cloudCondition(averageCloud), tempCondition(averageTemperature));
+                name, city, country, date, mapsURL, maxPrecipitation, minPrecipitation, averagePrecipitation, Precipitation, maxCloud, minCloud, averageCloud,Cloud,
+                maxHumidity, minHumidity, averageHumidity, Humidity, maxTemperature, minTemperature, averageTemperature,Temperature, isItRaining(averagePrecipitation), cloudCondition(averageCloud), tempCondition(averageTemperature));
 
 
     }
